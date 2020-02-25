@@ -1,4 +1,4 @@
-package net.jms.rabbitmq.application;
+package net.jms.rabbitmq.application.example2;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -6,7 +6,6 @@ import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.MessageProperties;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;

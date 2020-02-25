@@ -1,8 +1,13 @@
-package net.jms.rabbitmq.application;
+package net.jms.rabbitmq.application.example1;
 
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.Channel;
+
+/**
+ * Publisher will connect to RabbitMQ, send a single message, then exit.
+ */
+
 public class Send {
     private final static String QUEUE_NAME = "hello";
 

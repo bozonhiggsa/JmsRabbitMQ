@@ -1,9 +1,16 @@
-package net.jms.rabbitmq.application;
+package net.jms.rabbitmq.application.example1;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.DeliverCallback;
+
+/**
+ * Consumer that receives messages and prints them out.
+ * Consumer listening for messages from RabbitMQ, so unlike the publisher which publishes a single message,
+ * we'll keep it running to listen for messages and print them out.
+ */
+
 public class Recv {
     private final static String QUEUE_NAME = "hello";
 
