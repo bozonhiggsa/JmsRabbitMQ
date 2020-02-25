@@ -21,6 +21,9 @@ public class Task {
         AtomicInteger atomicInteger = new AtomicInteger();
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
+        // When RabbitMQ quits or crashes it will forget the queues and messages unless you tell it not to.
+        // Two things are required to make sure that messages aren't lost: we need to mark both the queue
+        // and messages as durable
         boolean durable = true;
         try (Connection connection = factory.newConnection();
             Channel channel = connection.createChannel()) {
