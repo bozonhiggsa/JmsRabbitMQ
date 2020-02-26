@@ -32,6 +32,10 @@ public class Task {
             ScheduledFuture<?> future = executor.scheduleAtFixedRate(() -> {
                 String message = "task '" + atomicInteger.incrementAndGet() + "'";
                 try {
+                    // At this point we're sure that the queue won't be lost even if RabbitMQ restarts. Now we need
+                    // to mark our messages as persistent - by setting MessageProperties (which implements
+                    // BasicProperties) to the value PERSISTENT_TEXT_PLAIN, that corresponds
+                    // Content-type "text/plain", deliveryMode=2 (persistent), priority zero
                     channel.basicPublish("", TASK_QUEUE_NAME,
                             MessageProperties.PERSISTENT_TEXT_PLAIN,
                             message.getBytes(CHARSET));
